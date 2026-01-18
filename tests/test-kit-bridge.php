@@ -2,7 +2,7 @@
 /**
  * Kit Bridge API Integration Tests
  *
- * @package GrandSlamLeadMagnets
+ * @package LeadCrafterLeadMagnets
  */
 
 use WP_Mock\Tools\TestCase;
@@ -17,12 +17,12 @@ class KitBridgeTest extends TestCase
         WP_Mock::setUp();
         
         // Reset singleton
-        $reflection = new ReflectionClass('KitLeads_Bridge');
+        $reflection = new ReflectionClass('LeadCrafter_Bridge');
         $property = $reflection->getProperty('instance');
         $property->setAccessible(true);
         $property->setValue(null, null);
         
-        $this->bridge = KitLeads_Bridge::get_instance();
+        $this->bridge = LeadCrafter_Bridge::get_instance();
     }
 
     public function tearDown(): void
@@ -60,12 +60,12 @@ class KitBridgeTest extends TestCase
             ->andReturn(true);
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_api_secret')
+            ->with('leadcrafter_api_secret')
             ->once()
             ->andReturn('');
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_form_id')
+            ->with('leadcrafter_form_id')
             ->once()
             ->andReturn('123456');
 
@@ -83,12 +83,12 @@ class KitBridgeTest extends TestCase
             ->andReturn(true);
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_api_secret')
+            ->with('leadcrafter_api_secret')
             ->once()
             ->andReturn('valid-api-secret');
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_form_id')
+            ->with('leadcrafter_form_id')
             ->once()
             ->andReturn('');
 
@@ -106,12 +106,12 @@ class KitBridgeTest extends TestCase
             ->andReturn(true);
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_api_secret')
+            ->with('leadcrafter_api_secret')
             ->once()
             ->andReturn('valid-api-secret');
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_form_id')
+            ->with('leadcrafter_form_id')
             ->once()
             ->andReturn('123456');
 
@@ -167,12 +167,12 @@ class KitBridgeTest extends TestCase
             ->andReturn(true);
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_api_secret')
+            ->with('leadcrafter_api_secret')
             ->once()
             ->andReturn('valid-api-secret');
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_form_id')
+            ->with('leadcrafter_form_id')
             ->once()
             ->andReturn('123456');
 
@@ -194,7 +194,7 @@ class KitBridgeTest extends TestCase
 
         // Mock fallback email call
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_fallback_email', \WP_Mock\Functions::type('string'))
+            ->with('leadcrafter_fallback_email', \WP_Mock\Functions::type('string'))
             ->once()
             ->andReturn('admin@example.com');
 
@@ -223,13 +223,13 @@ class KitBridgeTest extends TestCase
             ->andReturn(true);
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_api_secret')
+            ->with('leadcrafter_api_secret')
             ->once()
             ->andReturn('valid-api-secret');
 
         // Should use custom form_id, not default
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_form_id')
+            ->with('leadcrafter_form_id')
             ->never();
 
         WP_Mock::userFunction('wp_json_encode')
@@ -272,12 +272,12 @@ class KitBridgeTest extends TestCase
             ->andReturn(true);
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_api_secret')
+            ->with('leadcrafter_api_secret')
             ->once()
             ->andReturn('valid-api-secret');
 
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_form_id')
+            ->with('leadcrafter_form_id')
             ->once()
             ->andReturn('123456');
 
@@ -304,7 +304,7 @@ class KitBridgeTest extends TestCase
 
         // Mock fallback email for error case
         WP_Mock::userFunction('get_option')
-            ->with('kitleads_fallback_email', \WP_Mock\Functions::type('string'))
+            ->with('leadcrafter_fallback_email', \WP_Mock\Functions::type('string'))
             ->once()
             ->andReturn('admin@example.com');
 

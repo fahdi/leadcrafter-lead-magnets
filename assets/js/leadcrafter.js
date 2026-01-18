@@ -1,15 +1,15 @@
 /**
- * Grand Slam Lead Magnets AJAX Submission
+ * LeadCrafter - Grand Slam Lead Magnets AJAX Submission
  */
 document.addEventListener('DOMContentLoaded', function () {
-    const forms = document.querySelectorAll('.kitleads-form');
+    const forms = document.querySelectorAll('.leadcrafter-form');
 
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const wrap = this.closest('.kitleads-form-wrap');
-            const messageEl = this.querySelector('.kitleads-message');
+            const wrap = this.closest('.leadcrafter-form-wrap');
+            const messageEl = this.querySelector('.leadcrafter-message');
             const submitBtn = this.querySelector('button[type="submit"]');
             const emailInput = this.querySelector('input[type="email"]');
             
@@ -21,15 +21,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = '...';
             messageEl.textContent = '';
-            messageEl.className = 'kitleads-message';
+            messageEl.className = 'leadcrafter-message';
 
             const formData = new URLSearchParams();
-            formData.append('action', 'kitleads_subscribe');
+            formData.append('action', 'leadcrafter_subscribe');
             formData.append('email', email);
             formData.append('form_id', formId);
-            formData.append('nonce', kitLeadsData.nonce);
+            formData.append('nonce', leadCrafterData.nonce);
 
-            fetch(kitLeadsData.ajaxUrl, {
+            fetch(leadCrafterData.ajaxUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

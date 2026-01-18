@@ -2,7 +2,7 @@
 /**
  * AJAX Handler Tests
  *
- * @package GrandSlamLeadMagnets
+ * @package LeadCrafterLeadMagnets
  */
 
 use WP_Mock\Tools\TestCase;
@@ -16,13 +16,13 @@ class AjaxHandlerTest extends TestCase
     {
         WP_Mock::setUp();
         
-        // Reset KitLeads singleton
-        $reflection = new ReflectionClass('KitLeads');
+        // Reset LeadCrafter singleton
+        $reflection = new ReflectionClass('LeadCrafter');
         $property = $reflection->getProperty('instance');
         $property->setAccessible(true);
         $property->setValue(null, null);
         
-        $this->instance = KitLeads::get_instance();
+        $this->instance = LeadCrafter::get_instance();
     }
 
     public function tearDown(): void
@@ -40,7 +40,7 @@ class AjaxHandlerTest extends TestCase
 
         WP_Mock::userFunction('wp_verify_nonce')
             ->once()
-            ->with('invalid-nonce', 'kitleads_nonce')
+            ->with('invalid-nonce', 'leadcrafter_nonce')
             ->andReturn(false);
 
         WP_Mock::userFunction('sanitize_text_field')
@@ -91,7 +91,7 @@ class AjaxHandlerTest extends TestCase
 
         WP_Mock::userFunction('wp_verify_nonce')
             ->once()
-            ->with('valid-nonce', 'kitleads_nonce')
+            ->with('valid-nonce', 'leadcrafter_nonce')
             ->andReturn(true);
 
         WP_Mock::userFunction('sanitize_email')

@@ -2,7 +2,7 @@
 /**
  * Shortcode Rendering Tests
  *
- * @package GrandSlamLeadMagnets
+ * @package LeadCrafterLeadMagnets
  */
 
 use WP_Mock\Tools\TestCase;
@@ -17,12 +17,12 @@ class ShortcodeTest extends TestCase
         WP_Mock::setUp();
         
         // Reset singleton
-        $reflection = new ReflectionClass('KitLeads');
+        $reflection = new ReflectionClass('LeadCrafter');
         $property = $reflection->getProperty('instance');
         $property->setAccessible(true);
         $property->setValue(null, null);
         
-        $this->instance = KitLeads::get_instance();
+        $this->instance = LeadCrafter::get_instance();
     }
 
     public function tearDown(): void
@@ -39,15 +39,15 @@ class ShortcodeTest extends TestCase
         // Test shortcode registration
         WP_Mock::userFunction('add_shortcode')
             ->once()
-            ->with('grand_slam_magnets', [$this->instance, 'render_shortcode']);
+            ->with('leadcrafter', [$this->instance, 'render_shortcode']);
 
         // Re-initialize to trigger constructor
-        $reflection = new ReflectionClass('KitLeads');
+        $reflection = new ReflectionClass('LeadCrafter');
         $property = $reflection->getProperty('instance');
         $property->setAccessible(true);
         $property->setValue(null, null);
         
-        KitLeads::get_instance();
+        LeadCrafter::get_instance();
     }
 
     public function test_shortcode_default_attributes()
@@ -61,7 +61,7 @@ class ShortcodeTest extends TestCase
 
         WP_Mock::userFunction('shortcode_atts')
             ->once()
-            ->with($expected_defaults, [], 'grand_slam_magnets')
+            ->with($expected_defaults, [], 'leadcrafter')
             ->andReturn($expected_defaults);
 
         WP_Mock::userFunction('__')
@@ -70,11 +70,11 @@ class ShortcodeTest extends TestCase
 
         WP_Mock::userFunction('wp_enqueue_style')
             ->once()
-            ->with('kitleads-style');
+            ->with('leadcrafter-style');
 
         WP_Mock::userFunction('wp_enqueue_script')
             ->once()
-            ->with('kitleads-script');
+            ->with('leadcrafter-script');
 
         WP_Mock::userFunction('esc_attr')
             ->twice()
@@ -86,7 +86,7 @@ class ShortcodeTest extends TestCase
 
         $output = $this->instance->render_shortcode([]);
 
-        $this->assertStringContainsString('kitleads-form-wrap', $output);
+        $this->assertStringContainsString('leadcrafter-form-wrap', $output);
         $this->assertStringContainsString('Get the Grand Slam Multiplier', $output);
         $this->assertStringContainsString('Claim This Offer', $output);
     }
@@ -200,12 +200,12 @@ class ShortcodeTest extends TestCase
         $output = $this->instance->render_shortcode([]);
 
         // Test HTML structure
-        $this->assertStringContainsString('<div class="kitleads-form-wrap"', $output);
-        $this->assertStringContainsString('<form class="kitleads-form">', $output);
-        $this->assertStringContainsString('<div class="kitleads-input-group">', $output);
+        $this->assertStringContainsString('<div class="leadcrafter-form-wrap"', $output);
+        $this->assertStringContainsString('<form class="leadcrafter-form">', $output);
+        $this->assertStringContainsString('<div class="leadcrafter-input-group">', $output);
         $this->assertStringContainsString('<input type="email"', $output);
         $this->assertStringContainsString('<button type="submit">', $output);
-        $this->assertStringContainsString('<div class="kitleads-message"></div>', $output);
+        $this->assertStringContainsString('<div class="leadcrafter-message"></div>', $output);
         $this->assertStringContainsString('name="email"', $output);
         $this->assertStringContainsString('required', $output);
     }
@@ -228,11 +228,11 @@ class ShortcodeTest extends TestCase
         // Test that assets are properly enqueued
         WP_Mock::userFunction('wp_enqueue_style')
             ->once()
-            ->with('kitleads-style');
+            ->with('leadcrafter-style');
 
         WP_Mock::userFunction('wp_enqueue_script')
             ->once()
-            ->with('kitleads-script');
+            ->with('leadcrafter-script');
 
         WP_Mock::userFunction('esc_attr')
             ->twice()
@@ -381,17 +381,17 @@ class ShortcodeTest extends TestCase
 
         // Test that translatable strings use proper text domain
         WP_Mock::userFunction('__')
-            ->with('Get the Grand Slam Multiplier', 'grand-slam-lead-magnets')
+            ->with('Get the Grand Slam Multiplier', 'leadcrafter-lead-magnets')
             ->once()
             ->andReturn('Get the Grand Slam Multiplier');
 
         WP_Mock::userFunction('__')
-            ->with('Claim This Offer', 'grand-slam-lead-magnets')
+            ->with('Claim This Offer', 'leadcrafter-lead-magnets')
             ->once()
             ->andReturn('Claim This Offer');
 
         WP_Mock::userFunction('__')
-            ->with('Enter your email to receive value...', 'grand-slam-lead-magnets')
+            ->with('Enter your email to receive value...', 'leadcrafter-lead-magnets')
             ->once()
             ->andReturn('Enter your email to receive value...');
 

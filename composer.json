@@ -1,6 +1,6 @@
 {
-    "name": "fahdi/grand-slam-lead-magnets",
-    "description": "Grand Slam Lead Magnets - Multi-service lead magnet platform for WordPress",
+    "name": "fahdi/leadcrafter-lead-magnets",
+    "description": "LeadCrafter - Grand Slam Lead Magnets - Multi-service lead magnet platform for WordPress",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "require-dev": {
@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "GrandSlamLeadMagnets\\": "includes/"
+            "LeadCrafterLeadMagnets\\": "includes/"
         }
     },
     "scripts": {

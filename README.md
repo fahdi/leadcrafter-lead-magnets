@@ -1,6 +1,6 @@
-# Grand Slam Lead Magnets
+# LeadCrafter - Grand Slam Lead Magnets
 
-**Grand Slam Lead Magnets** is the ultimate multi-service platform for creators who want to build high-converting audiences. Deploy **Grand Slam Lead Magnets** and capture **Qualified Leads** across multiple email service providers, starting with Kit.com (ConvertKit) integration.
+**LeadCrafter - Grand Slam Lead Magnets** is the ultimate multi-service platform for creators who want to build high-converting audiences. Craft **Grand Slam Lead Magnets** and capture **Qualified Leads** across multiple email service providers, starting with Kit.com (ConvertKit) integration.
 
 ## 🚀 The Strategic Advantage
 
@@ -12,16 +12,16 @@
 
 ## 🛠️ Installation
 
-1. Upload the `grand-slam-lead-magnets` folder to the `/wp-content/plugins/` directory.
+1. Upload the `leadcrafter-lead-magnets` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to **Settings > Grand Slam Lead Magnets** to configure your API credentials and form settings.
+3. Go to **Settings > LeadCrafter** to configure your API credentials and form settings.
 
 ## 📄 Usage
 
 Use the following shortcode to drop your lead magnet anywhere:
 
 ```text
-[grand_slam_magnets]
+[leadcrafter]
 ```
 
 **Attributes (Customize Your Offer):**
@@ -32,7 +32,7 @@ Use the following shortcode to drop your lead magnet anywhere:
 
 Example:
 ```text
-[grand_slam_magnets title="Get The Strategic Checklist" button_text="I Want This!"]
+[leadcrafter title="Get The Strategic Checklist" button_text="I Want This!"]
 ```
 
 ## 🔒 Security

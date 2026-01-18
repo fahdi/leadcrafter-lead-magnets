@@ -1,33 +1,33 @@
-=== Grand Slam Lead Magnets ===
+=== LeadCrafter - Grand Slam Lead Magnets ===
 Contributors: fahdi
 Tags: email marketing, convertkit, lead magnets, marketing automation, email marketing tools
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Capture high-value leads with Grand Slam magnets. Multi-service lead magnet platform starting with Kit.com (ConvertKit) integration.
+Craft high-converting lead magnets like a pro! Multi-service lead magnet platform with Grand Slam methodology, starting with Kit.com (ConvertKit) integration.
 
 == Description ==
 
-**Grand Slam Lead Magnets** is the efficient multi-service platform for creators focusing on high-value lead acquisition. Stop building generic "forms" and start building **Grand Slam Lead Magnets** that build trust and authority.
+**LeadCrafter - Grand Slam Lead Magnets** is the efficient multi-service platform for creators focusing on high-value lead acquisition. Stop building generic "forms" and start crafting **Grand Slam Lead Magnets** that build trust and authority.
 
-Designed for marketers, course creators, and developers who value simplicity and high-conversion logic, Grand Slam Lead Magnets lets you deploy value-first lead captures with multiple email service integrations, starting with Kit.com (ConvertKit).
+Designed for marketers, course creators, and developers who value simplicity and high-conversion logic, LeadCrafter lets you deploy value-first lead captures with multiple email service integrations, starting with Kit.com (ConvertKit).
 
 === Features ===
 *   **🎯 Grand Slam Focus:** Optimized for high-value offers and low friction.
 *   **⚡ High-Velocity Submissions:** AJAX-powered capture for an instant, seamless experience.
 *   **📱 Modern & Responsive:** Professional design that builds immediate credibility.
-*   **🔧 Flexible Shortcodes:** Deploy your lead magnets anywhere with `[grand_slam_magnets]`.
+*   **🔧 Flexible Shortcodes:** Deploy your lead magnets anywhere with `[leadcrafter]`.
 *   **🛡️ Data Resilience:** Automatic fallback system ensures you never lose a lead, even if the API hiccups.
 
 == Installation ==
 
-1. Upload the `grand-slam-lead-magnets` folder to the `/wp-content/plugins/` directory.
+1. Upload the `leadcrafter-lead-magnets` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to **Settings > Grand Slam Lead Magnets** to enter your credentials.
+3. Go to **Settings > LeadCrafter** to enter your credentials.
 
 == Frequently Asked Questions ==
 
@@ -46,6 +46,14 @@ In your Kit.com account under Settings > API.
 2. **Value-First Form** - The clean, conversion-focused default magnet.
 
 == Changelog ==
+
+= 1.2.0 =
+* **MAJOR REBRANDING**: Now "LeadCrafter - Grand Slam Lead Magnets"
+* **Updated Shortcode**: Changed from `[grand_slam_magnets]` to `[leadcrafter]`
+* **New Text Domain**: Updated to `leadcrafter-lead-magnets`
+* **Enhanced Branding**: Professional "crafter" methodology for lead magnet creation
+* **API Improvements**: Updated option names and class structure
+* **Repository Update**: New slug `leadcrafter-lead-magnets`
 
 = 1.1.0 =
 * **REBRANDING**: Changed plugin name from "KitLeads" to "Grand Slam Lead Magnets"

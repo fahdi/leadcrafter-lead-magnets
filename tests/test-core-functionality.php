@@ -2,7 +2,7 @@
 /**
  * Core Functionality Tests
  *
- * @package GrandSlamLeadMagnets
+ * @package LeadCrafterLeadMagnets
  */
 
 use WP_Mock\Tools\TestCase;
@@ -22,7 +22,7 @@ class CoreFunctionalityTest extends TestCase
 
     public function test_plugin_class_exists()
     {
-        $this->assertTrue(class_exists('KitLeads'));
+        $this->assertTrue(class_exists('LeadCrafter'));
     }
 
     public function test_bridge_class_exists()
@@ -33,7 +33,7 @@ class CoreFunctionalityTest extends TestCase
         
         // Check that the file contains the class definition
         $content = file_get_contents($bridge_file);
-        $this->assertStringContainsString('class KitLeads_Bridge', $content);
+        $this->assertStringContainsString('class LeadCrafter_Bridge', $content);
     }
 
     public function test_main_plugin_file_structure()
@@ -47,15 +47,15 @@ class CoreFunctionalityTest extends TestCase
         $this->assertStringContainsString("if (!defined('ABSPATH'))", $content);
         
         // Test plugin header
-        $this->assertStringContainsString('Plugin Name: Grand Slam Lead Magnets', $content);
-        $this->assertStringContainsString('Text Domain: grand-slam-lead-magnets', $content);
+        $this->assertStringContainsString('Plugin Name: LeadCrafter - Grand Slam Lead Magnets', $content);
+        $this->assertStringContainsString('Text Domain: leadcrafter-lead-magnets', $content);
         
         // Test shortcode registration
-        $this->assertStringContainsString('grand_slam_magnets', $content);
+        $this->assertStringContainsString('leadcrafter', $content);
         
         // Test AJAX handlers
-        $this->assertStringContainsString('wp_ajax_kitleads_subscribe', $content);
-        $this->assertStringContainsString('wp_ajax_nopriv_kitleads_subscribe', $content);
+        $this->assertStringContainsString('wp_ajax_leadcrafter_subscribe', $content);
+        $this->assertStringContainsString('wp_ajax_nopriv_leadcrafter_subscribe', $content);
     }
 
     public function test_bridge_file_structure()
@@ -78,8 +78,8 @@ class CoreFunctionalityTest extends TestCase
 
     public function test_assets_exist()
     {
-        $css_file = __DIR__ . '/../assets/css/kitleads.css';
-        $js_file = __DIR__ . '/../assets/js/kitleads.js';
+        $css_file = __DIR__ . '/../assets/css/leadcrafter.css';
+        $js_file = __DIR__ . '/../assets/js/leadcrafter.js';
         
         $this->assertFileExists($css_file);
         $this->assertFileExists($js_file);
@@ -88,12 +88,12 @@ class CoreFunctionalityTest extends TestCase
         $js_content = file_get_contents($js_file);
         
         // Test CSS contains form styles
-        $this->assertStringContainsString('.kitleads-form-wrap', $css_content);
-        $this->assertStringContainsString('.kitleads-input-group', $css_content);
+        $this->assertStringContainsString('.leadcrafter-form-wrap', $css_content);
+        $this->assertStringContainsString('.leadcrafter-input-group', $css_content);
         
         // Test JS contains AJAX functionality
-        $this->assertStringContainsString('kitleads_subscribe', $js_content);
-        $this->assertStringContainsString('fetch(kitLeadsData.ajaxUrl', $js_content);
+        $this->assertStringContainsString('leadcrafter_subscribe', $js_content);
+        $this->assertStringContainsString('fetch(leadCrafterData.ajaxUrl', $js_content);
     }
 
     public function test_readme_updated()
@@ -104,8 +104,8 @@ class CoreFunctionalityTest extends TestCase
         $content = file_get_contents($readme_file);
         
         // Test rebranding
-        $this->assertStringContainsString('=== Grand Slam Lead Magnets ===', $content);
-        $this->assertStringContainsString('[grand_slam_magnets]', $content);
+        $this->assertStringContainsString('=== LeadCrafter - Grand Slam Lead Magnets ===', $content);
+        $this->assertStringContainsString('[leadcrafter]', $content);
         $this->assertStringNotContainsString('KitLeads', $content);
         
         // Test tags include trending keywords
@@ -123,7 +123,7 @@ class CoreFunctionalityTest extends TestCase
         
         $content = json_decode(file_get_contents($composer_file), true);
         
-        $this->assertEquals('fahdi/grand-slam-lead-magnets', $content['name']);
+        $this->assertEquals('fahdi/leadcrafter-lead-magnets', $content['name']);
         $this->assertArrayHasKey('scripts', $content);
         $this->assertArrayHasKey('test', $content['scripts']);
         $this->assertEquals('phpunit', $content['scripts']['test']);
@@ -172,7 +172,7 @@ class CoreFunctionalityTest extends TestCase
         $this->assertStringContainsString("esc_html_e('", $content);
         
         // Test text domain usage
-        $this->assertStringContainsString("'grand-slam-lead-magnets'", $content);
+        $this->assertStringContainsString("'leadcrafter-lead-magnets'", $content);
     }
 
     public function test_wp_error_handling()

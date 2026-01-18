@@ -1,10 +1,10 @@
 <?php
 /**
- * Grand Slam Lead Magnets - Kit Bridge
+ * LeadCrafter - Grand Slam Lead Magnets - Kit Bridge
  * 
  * Handles interactions with the Kit.com (ConvertKit) API using plugin settings.
  * 
- * @package GrandSlamLeadMagnets
+ * @package LeadCrafterLeadMagnets
  * @version 1.0.0
  */
 
@@ -12,18 +12,18 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class KitLeads_Bridge
+class LeadCrafter_Bridge
 {
     /**
      * Singleton instance.
-     * @var KitLeads_Bridge|null
+     * @var LeadCrafter_Bridge|null
      */
     private static $instance = null;
 
     /**
      * Get singleton instance.
      * 
-     * @return KitLeads_Bridge
+     * @return LeadCrafter_Bridge
      */
     public static function get_instance(): KitLeads_Bridge
     {
@@ -54,8 +54,8 @@ class KitLeads_Bridge
             return new WP_Error('invalid_email', 'Invalid email address');
         }
 
-        $api_secret = get_option('kitleads_api_secret');
-        $final_form_id = !empty($form_id) ? $form_id : get_option('kitleads_form_id');
+        $api_secret = get_option('leadcrafter_api_secret');
+        $final_form_id = !empty($form_id) ? $form_id : get_option('leadcrafter_form_id');
 
         if (empty($api_secret) || empty($final_form_id)) {
             return new WP_Error('missing_config', 'Kit.com API Secret or Form ID is missing from settings.');
@@ -102,7 +102,7 @@ class KitLeads_Bridge
      */
     private function send_fallback_email(string $email, string $error): void
     {
-        $fallback_email = get_option('kitleads_fallback_email', get_option('admin_email'));
+        $fallback_email = get_option('leadcrafter_fallback_email', get_option('admin_email'));
 
         if (empty($fallback_email)) {
             return;
@@ -110,7 +110,7 @@ class KitLeads_Bridge
 
         wp_mail(
             $fallback_email,
-            'Grand Slam Lead Magnets Alert (API Failed): ' . $email,
+            'LeadCrafter Alert (API Failed): ' . $email,
             sprintf(
                 "Kit.com API failed to process a new lead.\n\nEmail: %s\nSite: %s\nError: %s",
                 $email,

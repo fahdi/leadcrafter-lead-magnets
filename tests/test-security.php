@@ -2,7 +2,7 @@
 /**
  * Security and Validation Tests
  *
- * @package GrandSlamLeadMagnets
+ * @package LeadCrafterLeadMagnets
  */
 
 use WP_Mock\Tools\TestCase;
@@ -17,12 +17,12 @@ class SecurityTest extends TestCase
         WP_Mock::setUp();
         
         // Reset singleton
-        $reflection = new ReflectionClass('KitLeads');
+        $reflection = new ReflectionClass('LeadCrafter');
         $property = $reflection->getProperty('instance');
         $property->setAccessible(true);
         $property->setValue(null, null);
         
-        $this->instance = KitLeads::get_instance();
+        $this->instance = LeadCrafter::get_instance();
     }
 
     public function tearDown(): void
@@ -35,7 +35,7 @@ class SecurityTest extends TestCase
     {
         WP_Mock::userFunction('wp_create_nonce')
             ->once()
-            ->with('kitleads_nonce')
+            ->with('leadcrafter_nonce')
             ->andReturn('generated-nonce-123');
 
         WP_Mock::userFunction('admin_url')
@@ -210,7 +210,7 @@ class SecurityTest extends TestCase
         // Simulate nonce already used (WordPress would invalidate)
         WP_Mock::userFunction('wp_verify_nonce')
             ->once()
-            ->with('used-nonce', 'kitleads_nonce')
+            ->with('used-nonce', 'leadcrafter_nonce')
             ->andReturn(false);
 
         WP_Mock::userFunction('wp_send_json_error')
