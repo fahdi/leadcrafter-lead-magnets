@@ -25,7 +25,7 @@ class LeadCrafter_Bridge
      * 
      * @return LeadCrafter_Bridge
      */
-    public static function get_instance(): KitLeads_Bridge
+    public static function get_instance(): LeadCrafter_Bridge
     {
         if (self::$instance === null) {
             self::$instance = new self();

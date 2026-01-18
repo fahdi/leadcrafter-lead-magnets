@@ -154,11 +154,6 @@ class LeadCrafter
     {
         wp_register_style('leadcrafter-style', LEADCRAFTER_URL . 'assets/css/leadcrafter.css', array(), LEADCRAFTER_VERSION);
         wp_register_script('leadcrafter-script', LEADCRAFTER_URL . 'assets/js/leadcrafter.js', array(), LEADCRAFTER_VERSION, true);
-
-        wp_localize_script('leadcrafter-script', 'leadCrafterData', array(
-            'ajaxUrl' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('leadcrafter_nonce')
-        ));
     }
 
     public function render_shortcode($atts)
@@ -172,6 +167,11 @@ class LeadCrafter
 
         wp_enqueue_style('leadcrafter-style');
         wp_enqueue_script('leadcrafter-script');
+        
+        wp_localize_script('leadcrafter-script', 'leadCrafterData', array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('leadcrafter_nonce')
+        ));
 
         ob_start();
         ?>
