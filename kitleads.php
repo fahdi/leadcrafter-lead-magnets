@@ -3,7 +3,7 @@
  * Plugin Name: LeadCrafter - Grand Slam Lead Magnets
  * Plugin URI: https://github.com/fahdi/leadcrafter-lead-magnets
  * Description: Create professional lead magnets that convert! AJAX-powered forms with Kit.com integration, fallback email system, and conversion-optimized designs. Perfect for creators, marketers, and coaches.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: Fahad Murtaza
  * Author URI: https://github.com/fahdi
  * License: GPLv2 or later
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 /**
  * Global Constants
  */
-define('LEADCRAFTER_VERSION', '1.2.1');
+define('LEADCRAFTER_VERSION', '1.2.2');
 define('LEADCRAFTER_URL', plugin_dir_url(__FILE__));
 define('LEADCRAFTER_PATH', plugin_dir_path(__FILE__));
 

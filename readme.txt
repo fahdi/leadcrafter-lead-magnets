@@ -3,7 +3,7 @@ Contributors: fahdi
 Tags: email marketing, convertkit, lead magnets, marketing automation, email marketing tools
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -70,6 +70,10 @@ This service is provided by **Kit (formerly ConvertKit)**:
 * Privacy Policy: [https://kit.com/privacy](https://kit.com/privacy)
 
 == Changelog ==
+
+= 1.2.2 =
+* **WordPress.org Compliance**: Added external services documentation for Kit.com (ConvertKit) API integration
+* **Documentation**: Included terms of service and privacy policy links as required by WordPress Plugin Directory guidelines
 
 = 1.2.1 =
 * **CRITICAL BUG FIXES**: Fixed fatal error preventing plugin activation
